@@ -1,0 +1,20 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card img {
+  height: 200px;
+  object-fit: contain;
+}
+
+.nav-link.active {
+  color: #ffc107 !important;
+}
+
+.prodotto-img {
+  max-height: 400px;
+  object-fit: contain;
+}
