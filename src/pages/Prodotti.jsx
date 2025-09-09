@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { BudgetContext } from "../contexts/BudgetContext";
 
 const Prodotti = () => {
   const [prodotti, setProdotti] = useState([]);
+  const { budgetMode } = useContext(BudgetContext);
 
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products").then((resp) => {
