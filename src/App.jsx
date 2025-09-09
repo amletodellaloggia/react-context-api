@@ -1,11 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Homepage from "./pages/Homepage";
 import ChiSiamo from "./pages/ChiSiamo";
 import Prodotti from "./pages/Prodotti";
 import DefaultLayout from "./layouts/DefaultLayout";
 import DettaglioProdotto from "./pages/DettaglioProdotto";
-import { BudgetProvider } from "./context/BudgetContext";
+import { BudgetProvider } from "./contexts/BudgetContext";
 
 function App() {
   return (
