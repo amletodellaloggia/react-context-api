@@ -1,14 +1,24 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 
-export const BudgetContext = createContext();
+const BudgetContext = createContext();
 
-export const BudgetProvider = ({ children }) => {
-  // stato booleano: false = modalità budget disattivata
+const BudgetProvider = ({ children }) => {
   const [budgetMode, setBudgetMode] = useState(false);
 
+  const toggleBudgetMode = () => {
+    setBudgetMode(!budgetMode);
+  };
+
   return (
-    <BudgetContext.Provider value={{ budgetMode, setBudgetMode }}>
+    <BudgetContext.Provider value={{ budgetMode, setBudgetMode, toggleBudgetMode }}>
       {children}
     </BudgetContext.Provider>
   );
 };
+
+const useBudget = () => {
+  const context = useContext(BudgetContext);
+  return context;
+};
+
+export { BudgetProvider, useBudget };

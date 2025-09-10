@@ -1,9 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
-import { BudgetContext } from "../contexts/BudgetContext";
+import { useBudget } from "../contexts/BudgetContext";
 
 const Navbar = () => {
-  const { budgetMode, setBudgetMode } = useContext(BudgetContext);
+  const { budgetMode, toggleBudgetMode } = useBudget();
 
   return (
     <nav className="navbar navbar-dark bg-dark">
@@ -32,8 +31,7 @@ const Navbar = () => {
         {/* Bottone Modalità Budget */}
         <button
           className="btn btn-outline-light ms-3"
-          onClick={() => setBudgetMode(!budgetMode)}
-        >
+          onClick={toggleBudgetMode}>
           {budgetMode ? "Disattiva Modalità Budget" : "Attiva Modalità Budget"}
         </button>
       </div>

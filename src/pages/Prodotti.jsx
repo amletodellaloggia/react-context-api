@@ -1,19 +1,20 @@
-import { useState, useEffect, useContext } from "react";
+// Prodotti.jsx
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { BudgetContext } from "../contexts/BudgetContext";
+import { useBudget } from "../contexts/BudgetContext";
 
 const Prodotti = () => {
   const [prodotti, setProdotti] = useState([]);
-  const { budgetMode } = useContext(BudgetContext);
+  const { budgetMode } = useBudget();
 
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products").then((resp) => {
       setProdotti(resp.data);
     });
   }, []);
-// filtro per mostrare prodotti <= 30€
-    const prodottiDaMostrare = budgetMode
+
+  const prodottiDaMostrare = budgetMode
     ? prodotti.filter((prodotto) => prodotto.price <= 30)
     : prodotti;
 
